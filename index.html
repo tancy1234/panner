@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LED Panel</title>
+
+<style>
+body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: monospace;
+}
+
+.led-panel {
+    width: 90%;
+    max-width: 800px;
+    height: 120px;
+    background: #000;
+    border: 5px solid #333;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.led-text {
+    position: absolute;
+    white-space: nowrap;
+    color: #ff2b2b;
+    font-size: 70px;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="led-panel">
+    <div class="led-text">
+        Jackson 拿下冠军！！！
+    </div>
+</div>
+
+</body>
+</html>
