@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LED Panel Linear</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -11,75 +14,112 @@
     box-sizing:border-box;
 }
 
-body{
+html,body{
+    width:100%;
+    height:100%;
     overflow:hidden;
     background:#000;
 }
 
-/* Rotated container */
+/* Landscape LED screen */
 .led-screen{
     position:absolute;
     top:50%;
     left:50%;
+    transform:translate(-50%,-50%) rotate(90deg);
 
     width:100vh;
     height:100vw;
 
-    transform:translate(-50%, -50%) rotate(90deg);
-    transform-origin:center center;
+    border:12px solid #222;
+    border-radius:12px;
 
-    background:#000;
+    box-shadow:
+        inset 0 0 40px #000,
+        0 0 40px rgba(0,255,255,0.15);
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.led-panel{
-    width:95%;
-    height:30%;
-    background:#111;
-    border:5px solid #333;
     overflow:hidden;
+}
 
+/* LED dot matrix background */
+.led-panel{
+    width:100%;
+    height:100%;
     display:flex;
     align-items:center;
+
+    background:
+        radial-gradient(circle, #222 10%, transparent 11%) 0 0/12px 12px,
+        #000;
 }
 
+/* 🔥 LINEAR COLOR LED TEXT */
 .led-text{
-    white-space: nowrap;
-    color: #ff2b2b;
-    font-size: 12vw;
-    font-weight: 900;
+    white-space:nowrap;
+    font-family:'Orbitron', Arial, sans-serif;
+    font-weight:900;
+    font-size:14vw;
+    letter-spacing:6px;
 
-    /* Much sharper */
+    /* LINEAR GRADIENT TEXT */
+    background: linear-gradient(
+        90deg,
+        #ff004c,
+        #ffb300,
+        #00ffcc,
+        #0066ff,
+        #ff00ff,
+        #ff004c
+    );
+
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    /* glow */
     text-shadow:
-        0 0 2px #ff0000,
-        0 0 4px #ff0000;
+        0 0 4px rgba(255,255,255,0.15);
 
-    animation: scroll 12s linear infinite;
-
-    /* Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    animation:
+        scroll 8s linear infinite,
+        gradientMove 3s linear infinite;
 }
 
+/* scrolling */
 @keyframes scroll{
     from{
-        transform:translateX(100%);
+        transform:translateX(100vw);
     }
     to{
-        transform:translateX(-100%);
+        transform:translateX(-120%);
     }
 }
+
+/* moving rainbow effect */
+@keyframes gradientMove{
+    0%{
+        background-position:0% 50%;
+    }
+    100%{
+        background-position:300% 50%;
+    }
+}
+
+/* soft pulse */
+@keyframes glow{
+    from{opacity:0.85;}
+    to{opacity:1;}
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="led-screen">
     <div class="led-panel">
         <div class="led-text">
-            Jackson领航，势不可挡，战斗到底，不留遗憾!!! 
+            Jackson领航，势不可挡，战斗到底，不留遗憾!!!
         </div>
     </div>
 </div>
