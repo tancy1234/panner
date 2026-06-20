@@ -3,58 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LED Panel</title>
+<title>LED Phone Panel</title>
 
 <style>
-body {
-    margin: 0;
-    background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: monospace;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.led-panel {
-    width: 90%;
-    max-width: 800px;
-    height: 120px;
-    background: #000;
-    border: 5px solid #333;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 20px #ff0000;
+body{
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
 }
 
-.led-text {
-    position: absolute;
-    white-space: nowrap;
-    color: #ff2b2b;
-    font-size: 70px;
-    font-weight: bold;
+.phone{
+    width:390px;
+    height:844px;
+    background:#000;
+    border-radius:30px;
+    border:8px solid #333;
+    overflow:hidden;
+    position:relative;
+}
+
+.led-panel{
+    width:100%;
+    height:150px;
+    background:#000;
+    border-top:2px solid #222;
+    border-bottom:2px solid #222;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    margin-top:50px;
+}
+
+.led-text{
+    white-space:nowrap;
+    color:#ff0000;
+    font-size:70px;
+    font-weight:bold;
     text-shadow:
         0 0 5px #ff0000,
         0 0 10px #ff0000,
         0 0 20px #ff0000;
-    animation: scroll 10s linear infinite;
+    animation:scroll 8s linear infinite;
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
+@keyframes scroll{
+    from{
+        transform:translateX(390px);
     }
-    to {
-        transform: translateX(-100%);
+    to{
+        transform:translateX(-100%);
     }
 }
 </style>
 </head>
 <body>
 
-<div class="led-panel">
-    <div class="led-text">
-        Jackson 拿下冠军！！！
+<div class="phone">
+    <div class="led-panel">
+        <div class="led-text">
+            Jackson 拿下胜利！！！
+        </div>
     </div>
 </div>
 
