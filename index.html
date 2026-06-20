@@ -47,17 +47,21 @@ body{
 }
 
 .led-text{
-    white-space:nowrap;
-    color:red;
-    font-size:12vw;
-    
+    white-space: nowrap;
+    color: #ff2b2b;
+    font-size: 12vw;
+    font-weight: 900;
 
+    /* Much sharper */
     text-shadow:
-        0 0 5px red,
-        0 0 10px red,
-        0 0 20px red;
+        0 0 2px #ff0000,
+        0 0 4px #ff0000;
 
-    animation:scroll 8s linear infinite;
+    animation: scroll 8s linear infinite;
+
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 @keyframes scroll{
